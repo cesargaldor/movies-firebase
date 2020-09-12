@@ -2,7 +2,7 @@
   <div>
     <!--card-->
     <div
-      class="floating bg-cover relative ancho h-64 rounded-lg shadow mb-3 text-white"
+      class="floating bg-cover relative ancho sm:h-64 lg:h-64 rounded-lg shadow mb-3 text-white"
       :style="style"
     >
       <div class="flex justify-between p-3 text-sm">
@@ -74,6 +74,12 @@ export default {
 }
 
 .ancho {
-  width: 11rem;
+  width: 11.5rem;
+}
+
+@media (max-width: 500px) {
+  .ancho {
+    width: 11rem;
+  }
 }
 </style>

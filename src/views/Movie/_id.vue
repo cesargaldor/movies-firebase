@@ -6,7 +6,7 @@
       v-if="!loading"
       class="margin sm:-mt-2 sm:py-2 lg:py-4 lg:pr-4 sm:w-full lg:w-4/5 overflow-x-hidden"
     >
-      <div class="w-full sm:px-5 lg:px-8">
+      <div class="w-full sm:px-5 lg:px-4">
         <!-- Titulo, fecha y puntuaciones-->
         <div class="flex items-center justify-between">
           <div class="flex items-center">

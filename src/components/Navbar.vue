@@ -1,10 +1,10 @@
 <template>
   <div class="relative">
     <nav
-      class="margin sm:w-full lg:w-4/5 py-8 pr-4 flex items-center justify-between"
+      class="margin sm:w-full lg:w-4/5 sm:py-5 lg:py-8 pr-4 flex items-center justify-between"
     >
       <!-- Div con el search input -->
-      <div class="sm:w-5/6 lg:w-2/3 sm:pl-5 sm:pr-0 lg:pr-4">
+      <div class="sm:w-11/12 lg:w-2/3 px-4 lg:pr-4 flex justify-center">
         <input
           class="bg-gray-200 w-full sm:py-3 sm:px-2 lg:py-4 lg:px-2 rounded-md focus:outline-none"
           type="text"
@@ -25,7 +25,7 @@
         </router-link>
       </div>
       <!-- Icono burger para móvil -->
-      <div @click="mobile = true" class="sm:block lg:hidden xl:hidden pr-2">
+      <div @click="mobile = true" class="sm:block lg:hidden xl:hidden">
         <svg width="36" height="36" viewBox="0 0 20 20">
           <path
             fill-rule="evenodd"

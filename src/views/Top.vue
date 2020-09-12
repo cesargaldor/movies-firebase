@@ -3,13 +3,15 @@
     <Navbar />
     <Sidebar />
     <main
-      class="margin sm:pt-2 sm:pb-4 lg:py-4 sm:pl-5 lg:pr-1 lg:pl-6 sm:w-full lg:w-4/5 overflow-x-hidden"
+      v-if="!loading"
+      class="margin sm:px-3 sm:pt-2 sm:pb-4 lg:py-4 lg:pr-2 sm:w-full lg:w-4/5 overflow-x-hidden"
     >
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 sm:gap-0 lg:gap-1">
         <router-link
           v-for="movie in results"
           :key="movie.title"
           :to="`/movie/` + movie.id"
+          class="flex justify-center px-2"
         >
           <MovieCard
             :title="movie.title"
@@ -20,6 +22,9 @@
         </router-link>
       </div>
     </main>
+    <div v-else class="margin h-screen flex items-center justify-center">
+      <Spinner />
+    </div>
   </div>
 </template>
 
@@ -27,6 +32,7 @@
 import Navbar from "@/components/Navbar.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import MovieCard from "@/components/MovieCard.vue";
+import Spinner from "@/components/Spinner.vue";
 import axios from "axios";
 
 export default {
@@ -38,16 +44,19 @@ export default {
     Navbar,
     Sidebar,
     MovieCard,
+    Spinner,
   },
   data() {
     return {
       page: 1,
       url: "https://api.themoviedb.org/3/movie/top_rated",
       results: [],
+      loading: false,
     };
   },
   methods: {
     async getTop() {
+      this.loading = true;
       try {
         const res = await axios.get(this.url, {
           params: {
@@ -57,8 +66,11 @@ export default {
           },
         });
         this.results = res.data.results;
+        this.loading = false;
       } catch (error) {
         this.$toast.error(error.message);
+      } finally {
+        this.loading = false;
       }
     },
   },

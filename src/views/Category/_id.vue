@@ -4,13 +4,14 @@
     <Sidebar />
     <main
       v-if="!loading"
-      class="margin sm:pt-2 sm:pb-4 lg:py-4 sm:pl-5 lg:pr-1 lg:pl-6 sm:w-full lg:w-4/5 overflow-x-hidden"
+      class="margin sm:px-3 sm:pt-2 sm:pb-4 lg:py-4 lg:pr-2 sm:w-full lg:w-4/5 overflow-x-hidden"
     >
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 sm:gap-0 lg:gap-1">
         <router-link
           v-for="movie in results"
           :key="movie.title"
           :to="`/movie/` + movie.id"
+          class="flex justify-center"
         >
           <MovieCard
             :title="movie.title"
