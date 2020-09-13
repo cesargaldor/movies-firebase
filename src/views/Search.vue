@@ -3,16 +3,17 @@
     <Navbar />
     <Sidebar />
     <main
-      class="margin sm:-mt-2 sm:py-1 lg:py-4 sm:pl-2 lg:pr-6 sm:w-full lg:w-4/5 overflow-x-hidden"
+      class="margin sm:px-3 sm:pb-4 lg:pt-1 lg:pb-5 lg:pr-2 sm:w-full lg:w-4/5 overflow-x-hidden"
     >
-      <h1 class="text-2xl font-semibold mb-4">
+      <h1 class="sm:pl-2 lg:pl-1 text-2xl font-semibold sm:mb-4 lg:mb-6">
         Resultados de: {{ this.$route.params.name }}
       </h1>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-5 sm:gap-1 lg:gap-2">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 sm:gap-0 lg:gap-1">
         <router-link
           v-for="movie in results"
           :key="movie.id"
           :to="`/movie/` + movie.id"
+          class="flex justify-center px-2"
         >
           <MovieCard
             :title="movie.title"
